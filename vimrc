@@ -8,6 +8,10 @@ filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+" ---------------------------------------------------------------------------
+"  General settings
+" ---------------------------------------------------------------------------
+
 " Vim not Vi
 set nocompatible
 
@@ -16,7 +20,6 @@ set modelines=0
 
 " Lots of history
 set history=1000
-
 
 " ----------------------------------------------------------------------------
 "  Backups
