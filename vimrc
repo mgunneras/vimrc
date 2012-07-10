@@ -12,7 +12,6 @@ call pathogen#helptags()
 "  General settings
 " ---------------------------------------------------------------------------
 
-" Vim not Vi
 set nocompatible
 
 " Prevent security exploits
@@ -20,6 +19,10 @@ set modelines=0
 
 " Lots of history
 set history=1000
+
+" Sane encoding
+set encoding=utf-8
+
 
 " ----------------------------------------------------------------------------
 "  Backups
@@ -32,19 +35,21 @@ set backupdir=~/.vim/backup " store backups under ~/.vim/backup
 set backupcopy=yes         " keep attributes of original file
 set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
 set directory=~/.vim/swap,~/tmp,. " keep swp files under ~/.vim/swap
+"set undofile              " 7.3 feature
 
 " ----------------------------------------------------------------------------
 "  UI
 " ----------------------------------------------------------------------------
 
-set number                 " show line numbers
+"set relativenumber         " show line numbers
+set number
 set ruler                  " show the cursor position all the time
 set scrolloff=3            " start scrolling before cursor at end
 set noshowcmd              " don't display incomplete commands
 set nolazyredraw           " turn off lazy redraw
 set wildmenu               " turn on wild menu (better filename completion)
 set wildmode=list:longest,full
-set backspace=2            " allow backspacing over everything in insert mode
+set backspace=indent,eol,start
 set whichwrap+=<,>,h,l,[,] " backspace and cursor keys wrap to
 set shortmess=atI          " shorten messages
 set report=0               " tell us about changes
@@ -56,6 +61,7 @@ set linebreak              " wrap long lines between words
 " ----------------------------------------------------------------------------
 
 syntax on                  " enable syntax highlighting
+set t_Co=256
 let loaded_matchparen=1    " don't hightlight matching brackets/braces
 set laststatus=2           " always show the status line
 set hlsearch               " highlight all search terms
@@ -64,7 +70,11 @@ set ignorecase             " ignore case when searching
 set smartcase              " case sensitive only if capitals in search term
 "set colorcolumn=80        " not available until Vim 7.3
 set visualbell             " shut the fuck up
-
+set showmode               " Indicates input or replace mode at bottom
+set showcmd                 
+set hidden
+set ttyfast
+colorscheme molokai
 " ----------------------------------------------------------------------------
 "  Text Formatting
 " ----------------------------------------------------------------------------
@@ -73,6 +83,7 @@ set expandtab              " expand tabs to spaces
 set softtabstop=2
 set shiftwidth=2           " distance to shift lines with < and >
 set ts=4                   " tab character display size
+set autoindent
 
 " ----------------------------------------------------------------------------
 "  Autocommands
@@ -223,8 +234,10 @@ if has('gui_running')
     set columns=140
   endif
 
-  colorscheme losh_molokai
+  colorscheme molokai
   set guioptions=gemc          " show menu, tabs, console dialogs
+
+  set cursorline
 
   " --------------------------------------------------------------------------
   "  Highlight Trailing Whitespace
