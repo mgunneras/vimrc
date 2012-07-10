@@ -258,9 +258,8 @@ endif
 "  NERDTree
 " ----------------------------------------------------------------------------
 
-" Launch on startup
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+" Launch on startup if no file is openened
+autocmd vimenter * if !argc() | NERDTree | endif
 
 " Toggle visibility with F2
 map <F2> :NERDTreeToggle<CR>

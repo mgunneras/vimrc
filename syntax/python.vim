@@ -372,3 +372,8 @@ if version >= 508 || !exists("did_python_syn_inits")
 endif
 
 let b:current_syntax = "python"
+
+" Make sure python has 4 spaces indentation
+setlocal expandtab
+setlocal shiftwidth=4
+setlocal softtabstop=4
