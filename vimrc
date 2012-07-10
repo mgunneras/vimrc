@@ -7,6 +7,7 @@ filetype on " turn on to avoid non-zero exit code on OSX
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+filetype plugin indent on
 
 " ---------------------------------------------------------------------------
 "  General settings
@@ -79,6 +80,9 @@ colorscheme molokai
 "  Text Formatting
 " ----------------------------------------------------------------------------
 
+set wrap
+set textwidth=79
+set formatoptions=qrn1
 set expandtab              " expand tabs to spaces
 set softtabstop=2
 set shiftwidth=2           " distance to shift lines with < and >
@@ -100,15 +104,12 @@ au BufWritePost * if getline(1) =~ "^#!/bin/" | :call MakeExecutable() | endif
 "  Variables
 " ---------------------------------------------------------------------------
 
-let maplocalleader = ","
+let mapleader = ","
 let g:ackprg="ack-grep\\ -H\\ --nocolor\\ --nogroup\\ --column" " for Ack plugin
 
 " ----------------------------------------------------------------------------
 "  Mappings
 " ----------------------------------------------------------------------------
-
-" kj to exit insert mode
-imap kj <Esc>
 
 " Y to yank to end of line
 map Y y$
@@ -137,29 +138,10 @@ nnoremap <C-y> 3<C-y>
 map <C-s> :w<CR>
 
 " easy ack
-nnoremap <LocalLeader>a :Ack 
+nnoremap <Leader>a :Ack 
 
 " change directory to that of current file
 cmap cdc cd %:p:h
-
-" ---------------------------------------------------------------------------
-"  Ruby Mappings
-" ---------------------------------------------------------------------------
-
-" syntax check Ruby script
-map <LocalLeader>cr :!ruby -c %<cr>
-
-" syntax check Bash script
-map <LocalLeader>cb :!bash -n %<cr>
-
-" insert Ruby hash pointer (" => ")
-imap <S-A-l> <Space>=><Space>
-
-" insert code block with arguments
-imap {<Tab> { \|\|  }<Esc>3hi
-
-" require and call debugger
-nmap <LocalLeader>id Orequire 'ruby-debug'; debugger<Esc>
 
 " ---------------------------------------------------------------------------
 "  Split Navigation
@@ -176,23 +158,23 @@ nmap <C-l> <C-w>l
 " ---------------------------------------------------------------------------
 
 " ,ss toggles spell checking
-map <LocalLeader>ss :setlocal spell!<cr>
+map <Leader>ss :setlocal spell!<cr>
 
 " spell checking shortcuts (next, prev, add, suggest)
-map <LocalLeader>sn ]s
-map <LocalLeader>sp [s
-map <LocalLeader>sa zg
-map <LocalLeader>s? z=
+map <Leader>sn ]s
+map <Leader>sp [s
+map <Leader>sa zg
+map <Leader>s? z=
 
 " ---------------------------------------------------------------------------
 "  Handling Whitespace
 " ---------------------------------------------------------------------------
 
 "  strip trailing whitespace
-map <LocalLeader>ks :%s/\s\+$//g<CR>
+map <Leader>ks :%s/\s\+$//g<CR>
 
 "  convert tabs to spaces
-map <LocalLeader>kt :%s/\t/  /g<CR>
+map <Leader>kt :%s/\t/  /g<CR>
 
 " ---------------------------------------------------------------------------
 "  Copy/Paste Shortcuts
@@ -202,8 +184,8 @@ map <LocalLeader>kt :%s/\t/  /g<CR>
 vmap <C-c> "+y
 
 " paste in NORMAL mode from system clipboard (at or after cursor)
-nmap <LocalLeader>V "+gP
-nmap <LocalLeader>v "+gp
+nmap <Leader>V "+gP
+nmap <Leader>v "+gp
 
 " paste in INSERT mode from Vim's clipboard (unnamed register)
 imap vp <ESC>pa
@@ -234,7 +216,7 @@ if has('gui_running')
     set columns=140
   endif
 
-  colorscheme molokai
+  "colorscheme molokai
   set guioptions=gemc          " show menu, tabs, console dialogs
 
   set cursorline
@@ -254,7 +236,7 @@ if has('gui_running')
   set guitablabel=%N\ %t\ %M\ %r
 
   " quick open new tab
-  map <LocalLeader>t :tabnew<CR>
+  map <Leader>t :tabnew<CR>
 
   " C-TAB and C-SHIFT-TAB cycle tabs forward and backward
   nmap <C-tab> :tabnext<CR>
@@ -267,7 +249,32 @@ if has('gui_running')
   " jump directly to tab
   let i=1
   while i<=9
-    execute "map <LocalLeader>".i." ".i."gt<CR>"
+    execute "map <Leader>".i." ".i."gt<CR>"
     let i+=1
   endwhile
 endif
+
+" ----------------------------------------------------------------------------
+"  NERDTree
+" ----------------------------------------------------------------------------
+
+" Launch on startup
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+
+" Toggle visibility with F2
+map <F2> :NERDTreeToggle<CR>
+
+autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+
+" Close all open buffers on entering a window if the only
+" buffer that's left is the NERDTree buffer
+function! s:CloseIfOnlyNerdTreeLeft()
+  if exists("t:NERDTreeBufName")
+    if bufwinnr(t:NERDTreeBufName) != -1
+      if winnr("$") == 1
+        q
+      endif
+    endif
+  endif
+endfunction
