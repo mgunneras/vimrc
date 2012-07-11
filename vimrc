@@ -207,8 +207,8 @@ if has('gui_running')
 
   if system("uname") == "Darwin\n" " on OSX
     set guifont=Monaco
-    set lines=55
-    set columns=94
+    set lines=70
+    set columns=236
   else                         " on Ubuntu
     set guifont=Monospace\ 8
     winpos 1100 0              " put window at right edge of left monitor
@@ -254,12 +254,13 @@ if has('gui_running')
   endwhile
 endif
 
+
 " ----------------------------------------------------------------------------
 "  NERDTree
 " ----------------------------------------------------------------------------
 
 " Launch on startup if no file is openened
-autocmd vimenter * if !argc() | NERDTree | endif
+autocmd vimenter * if !argc() | NERDTree | wincmd p | endif
 
 " Toggle visibility with F2
 map <F2> :NERDTreeToggle<CR>
