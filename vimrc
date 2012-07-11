@@ -36,13 +36,13 @@ set backupdir=~/.vim/backup " store backups under ~/.vim/backup
 set backupcopy=yes         " keep attributes of original file
 set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
 set directory=~/.vim/swap,~/tmp,. " keep swp files under ~/.vim/swap
-"set undofile              " 7.3 feature
+set undofile              " 7.3 feature
 
 " ----------------------------------------------------------------------------
 "  UI
 " ----------------------------------------------------------------------------
 
-"set relativenumber         " show line numbers
+set relativenumber         " show line numbers
 set number
 set ruler                  " show the cursor position all the time
 set scrolloff=3            " start scrolling before cursor at end
@@ -69,13 +69,14 @@ set hlsearch               " highlight all search terms
 set incsearch              " highlight search text as entered
 set ignorecase             " ignore case when searching
 set smartcase              " case sensitive only if capitals in search term
-"set colorcolumn=80        " not available until Vim 7.3
+set colorcolumn=80        " not available until Vim 7.3
 set visualbell             " shut the fuck up
 set showmode               " Indicates input or replace mode at bottom
 set showcmd                 
 set hidden
 set ttyfast
 colorscheme molokai
+
 " ----------------------------------------------------------------------------
 "  Text Formatting
 " ----------------------------------------------------------------------------
