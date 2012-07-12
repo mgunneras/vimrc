@@ -266,6 +266,9 @@ autocmd vimenter * if !argc() | NERDTree | wincmd p | endif
 " Toggle visibility with F2
 map <F2> :NERDTreeToggle<CR>
 
+" Hide files
+let NERDTreeIgnore = ['\.pyc$']
+
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 
 " Close all open buffers on entering a window if the only
