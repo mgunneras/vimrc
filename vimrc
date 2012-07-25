@@ -43,7 +43,7 @@ set undofile              " 7.3 feature
 " ----------------------------------------------------------------------------
 
 set relativenumber         " show line numbers
-set number
+"set number
 set ruler                  " show the cursor position all the time
 set scrolloff=3            " start scrolling before cursor at end
 set noshowcmd              " don't display incomplete commands
@@ -121,12 +121,6 @@ map <C-x> :q<CR>
 " Press Space to turn off highlighting and clear any message already displayed.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
-" ,; opens ~/.vimrc
-map ,; :tabe ~/.vimrc<CR><C-W>_
-
-" ,: reloads .vimrc
-map <silent> ,: :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-
 " move up and down by screen lines instead of text lines
 nnoremap j gj
 nnoremap k gk
@@ -143,6 +137,10 @@ nnoremap <Leader>a :Ack
 
 " change directory to that of current file
 cmap cdc cd %:p:h
+
+" map Ctrl+n and Ctrl+p to jump between open buffers
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprevious<CR>
 
 " ---------------------------------------------------------------------------
 "  Split Navigation
