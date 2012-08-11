@@ -28,3 +28,6 @@
 [submodule "bundle/xmledit"]
 	path = bundle/xmledit
 	url = https://github.com/sukima/xmledit.git
+[submodule "bundle/simple-pairs"]
+	path = bundle/simple-pairs
+	url = https://github.com/vim-scripts/simple-pairs.git
