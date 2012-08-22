@@ -75,7 +75,11 @@ set showmode               " Indicates input or replace mode at bottom
 set showcmd                 
 set hidden
 set ttyfast
+"colorscheme mustang
 colorscheme molokai
+"colorscheme zenburn
+"colorscheme tir_black
+"colorscheme jellybeans
 
 " ----------------------------------------------------------------------------
 "  Text Formatting
@@ -94,7 +98,7 @@ set autoindent
 "  Filetypes
 " ----------------------------------------------------------------------------
 
-au BufNewFile,BufRead nginx.conf,*nginx.conf so $HOME/.vim/bundle/vim-nginx/syntax/nginx.vim
+au BufNewFile,BufRead nginx.conf,*nginx.conf,*/nginx/**/*.conf so $HOME/.vim/bundle/nginx/syntax/nginx.vim
 
 " ----------------------------------------------------------------------------
 "  Autocommands
@@ -287,3 +291,8 @@ function! s:CloseIfOnlyNerdTreeLeft()
   endif
 endfunction
 
+
+" ----------------------------------------------------------------------------
+"  powerline
+" ----------------------------------------------------------------------------
+"let g:Powerline_symbols = 'fancy'
