@@ -268,6 +268,9 @@ endif
 "  NERDTree
 " ----------------------------------------------------------------------------
 
+" Set width
+let g:NERDTreeWinSize = 20 
+
 " Launch on startup if no file is openened
 autocmd vimenter * if !argc() | NERDTree | wincmd p | endif
 
