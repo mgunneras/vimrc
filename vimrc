@@ -139,6 +139,7 @@ nnoremap k gk
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
+
 " easy file saving
 map <C-s> :w<CR>
 
