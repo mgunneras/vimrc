@@ -8,7 +8,6 @@ filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
-set background=light
 
 
 " ---------------------------------------------------------------------------
@@ -241,6 +240,7 @@ if has('gui_running')
   " note that this inhibits the linebreak option so lines will wrap mid-word
   set list listchars=trail:.,tab:>.
   highlight SpecialKey ctermfg=DarkGray ctermbg=Black
+
 
   " --------------------------------------------------------------------------
   "  Tab Navigation

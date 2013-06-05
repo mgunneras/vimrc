@@ -57,6 +57,7 @@ hi javaScriptNumber guifg=#3498db guibg=NONE guisp=NONE gui=NONE ctermfg=74 cter
 hi Boolean guifg=#3498db guibg=NONE guisp=NONE gui=NONE ctermfg=74 ctermbg=NONE cterm=NONE
 hi Operator guifg=#16a084 guibg=NONE guisp=NONE gui=NONE ctermfg=36 ctermbg=NONE cterm=NONE
 "hi CursorLine -- no settings --
+hi CursorLine   cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
 "hi Union -- no settings --
 "hi TabLineFill -- no settings --
 hi Question guifg=#e75c3d guibg=NONE guisp=NONE gui=NONE ctermfg=209 ctermbg=NONE cterm=NONE
@@ -110,4 +111,4 @@ hi rubyClass guifg=#e75c3d guibg=#2f475d guisp=#2f475d gui=NONE ctermfg=79 cterm
 "hi clear -- no settings --
 "
 "
-highlight ColorColumn ctermbg=8
+highlight ColorColumn ctermbg=8 guibg=#445c70
