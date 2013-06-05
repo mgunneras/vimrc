@@ -8,6 +8,8 @@ filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
+set background=light
+
 
 " ---------------------------------------------------------------------------
 "  General settings
@@ -42,7 +44,7 @@ set undofile              " 7.3 feature
 "  UI
 " ----------------------------------------------------------------------------
 
-set relativenumber         " show line numbers
+"set relativenumber         " show line numbers
 "set number
 set ruler                  " show the cursor position all the time
 set scrolloff=3            " start scrolling before cursor at end
@@ -76,10 +78,11 @@ set showcmd
 set hidden
 set ttyfast
 "colorscheme mustang
-colorscheme molokai
+"colorscheme molokai
 "colorscheme zenburn
 "colorscheme tir_black
 "colorscheme jellybeans
+colorscheme toychest
 
 " ----------------------------------------------------------------------------
 "  Text Formatting
