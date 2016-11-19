@@ -13,7 +13,7 @@ let g:colors_name = "toychest"
 
 "hi IncSearch -- no settings --
 "hi WildMenu -- no settings --
-"hi SignColumn -- no settings --
+hi SignColumn guifg=NONE guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 "hi SpecialComment -- no settings --
 hi Typedef guifg=#b45ddc guibg=NONE guisp=NONE gui=NONE ctermfg=134 ctermbg=NONE cterm=NONE
 "hi Title -- no settings --

@@ -37,7 +37,7 @@ set backupdir=~/.vim/backup " store backups under ~/.vim/backup
 set backupcopy=yes         " keep attributes of original file
 set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
 set directory=~/.vim/swap,~/tmp,. " keep swp files under ~/.vim/swap
-set undofile              " 7.3 feature
+"set undofile              " 7.3 feature
 
 " ----------------------------------------------------------------------------
 "  UI
@@ -221,6 +221,10 @@ cmap vp <C-r>"
 " paste in COMMAND mode from system clipboard
 cmap vv <C-r>+
 
+" resize pane width
+"nmap <C-Right> :vertical resize +1
+"nmap <C-Left> :vertical resize -1
+
 " ----------------------------------------------------------------------------
 "  Graphical
 " ----------------------------------------------------------------------------
@@ -283,10 +287,10 @@ endif
 " ----------------------------------------------------------------------------
 
 " Set width
-let g:NERDTreeWinSize = 20 
+let g:NERDTreeWinSize = 25 
 
 " Launch on startup if no file is openened
-autocmd vimenter * if !argc() | NERDTree | wincmd p | endif
+"autocmd vimenter * if !argc() | NERDTree | wincmd p | endif
 
 " Toggle visibility with F2
 map <F2> :NERDTreeToggle<CR>
@@ -308,64 +312,41 @@ function! s:CloseIfOnlyNerdTreeLeft()
   endif
 endfunction
 
-
-" ----------------------------------------------------------------------------
-"  powerline
-" ----------------------------------------------------------------------------
-"let g:Powerline_symbols = 'fancy'
-
-" XML formatter
-function! DoFormatXML() range
-    " Save the file type
-    let l:origft = &ft
-
-    " Clean the file type
-    set ft=
-
-    " Add fake initial tag (so we can process multiple top-level elements)
-    exe ":let l:beforeFirstLine=" . a:firstline . "-1"
-    if l:beforeFirstLine < 0
-        let l:beforeFirstLine=0
-    endif
-    exe a:lastline . "put ='</PrettyXML>'"
-    exe l:beforeFirstLine . "put ='<PrettyXML>'"
-    exe ":let l:newLastLine=" . a:lastline . "+2"
-    if l:newLastLine > line('$')
-        let l:newLastLine=line('$')
-    endif
-
-    " Remove XML header
-    exe ":" . a:firstline . "," . a:lastline . "s/<\?xml\\_.*\?>\\_s*//e"
-
-    " Recalculate last line of the edited code
-    let l:newLastLine=search('</PrettyXML>')
-
-    " Execute external formatter
-    exe ":silent " . a:firstline . "," . l:newLastLine . "!xmllint --noblanks --format --recover -"
-
-    " Recalculate first and last lines of the edited code
-    let l:newFirstLine=search('<PrettyXML>')
-    let l:newLastLine=search('</PrettyXML>')
-    
-    " Get inner range
-    let l:innerFirstLine=l:newFirstLine+1
-    let l:innerLastLine=l:newLastLine-1
-
-    " Remove extra unnecessary indentation
-    exe ":silent " . l:innerFirstLine . "," . l:innerLastLine "s/^  //e"
-
-    " Remove fake tag
-    exe l:newLastLine . "d"
-    exe l:newFirstLine . "d"
-
-    " Put the cursor at the first line of the edited code
-    exe ":" . l:newFirstLine
-
-    " Restore the file type
-    exe "set ft=" . l:origft
-endfunction
-command! -range=% FormatXML <line1>,<line2>call DoFormatXML()
+" hide certain files from nerdtree view
+let NERDTreeIgnore = ['\.pyc$']
 
 nmap <silent> <leader>x :%FormatXML<CR>
 vmap <silent> <leader>x :FormatXML<CR>
 
+" ctrl p plugin fuzzy finder
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+if executable('ag')
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " ag is fast enough that CtrlP doesn't need to cache
+  "let g:ctrlp_use_caching = 0
+endif
+
+
+" Special file syntax without file endings
+au BufRead,BufNewFile Podfile set filetype=ruby
+
+
+" ----------------------------------------------------------------------------
+"  Syntastic
+" ----------------------------------------------------------------------------
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "passive_filetypes": ["c"] }
