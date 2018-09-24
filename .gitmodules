@@ -91,3 +91,9 @@
 [submodule "bundle/base16-vim"]
 	path = bundle/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
+[submodule "bundle/ycm"]
+	path = bundle/ycm
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "bundle/ycm-gen"]
+	path = bundle/ycm-gen
+	url = https://github.com/rdnetto/YCM-Generator.git

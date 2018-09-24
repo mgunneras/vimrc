@@ -77,10 +77,10 @@ set showcmd
 set hidden
 set ttyfast
 "colorscheme mustang
-colorscheme molokai
+"colorscheme molokai
 "colorscheme zenburn
 "colorscheme tir_black
-"colorscheme jellybeans
+colorscheme jellybeans
 "colorscheme toychest
 "colorscheme base16-default-dark
 "colorscheme base16-google-dark
