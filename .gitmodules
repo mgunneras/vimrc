@@ -46,3 +46,6 @@
 [submodule "bundle/ycm-gen"]
 	path = bundle/ycm-gen
 	url = https://github.com/rdnetto/YCM-Generator.git
+[submodule "bundle/jellybeans"]
+	path = bundle/jellybeans
+	url = https://github.com/nanotech/jellybeans.vim.git
