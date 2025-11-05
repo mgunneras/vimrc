@@ -70,7 +70,7 @@ set hlsearch               " highlight all search terms
 set incsearch              " highlight search text as entered
 set ignorecase             " ignore case when searching
 set smartcase              " case sensitive only if capitals in search term
-set colorcolumn=80        " not available until Vim 7.3
+"set colorcolumn=80        " not available until Vim 7.3
 set visualbell             " shut the fuck up
 set showmode               " Indicates input or replace mode at bottom
 set showcmd                 
@@ -81,7 +81,7 @@ set ttyfast
 "colorscheme zenburn
 "colorscheme tir_black
 "colorscheme jellybeans
-colorscheme toychest
+"colorscheme toychest
 "colorscheme base16-default-dark
 "colorscheme base16-google-dark
 "colorscheme base16-twilight-dark
