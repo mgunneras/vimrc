@@ -4,13 +4,19 @@ vimrc
 vim settings
 
 
-Installation
+Installation on MacOS
 ============
 ```bash
 cd ~
 git clone git://github.com/mgunneras/vimrc.git .vim
-ln -s .vim/vimrc .vimrc
+ln -s .vim/macos.vimrc .vimrc
 cd .vim/
 git submodule update --init
 ```
-a
+
+Lite install i.e remote server etc
+============
+```bash
+curl https://raw.githubusercontent.com/mgunneras/vimrc/refs/heads/master/lite.vimrc
+> ~/.vimrc
+```
