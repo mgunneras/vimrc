@@ -80,8 +80,8 @@ set ttyfast
 "colorscheme molokai
 "colorscheme zenburn
 "colorscheme tir_black
-colorscheme jellybeans
-"colorscheme toychest
+"colorscheme jellybeans
+colorscheme toychest
 "colorscheme base16-default-dark
 "colorscheme base16-google-dark
 "colorscheme base16-twilight-dark
