@@ -53,7 +53,7 @@ Clone the repository without plugins for a lightweight setup:
 
 ```bash
 cd ~
-git clone --depth 1 --no-recurse-submodules git://github.com/mgunneras/vimrc.git .vim
+git clone --depth 1 --no-recurse-submodules https://github.com/mgunneras/vimrc.git .vim
 ln -s .vim/vimrc.lite .vimrc
 ```
 
