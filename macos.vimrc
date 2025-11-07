@@ -25,6 +25,10 @@ set history=1000
 " Sane encoding
 set encoding=utf-8
 
+" automatically pick up edits from other programs (claude code etc)
+set autoread
+au FocusGained,BufEnter * :silent! checktime
+
 
 " ----------------------------------------------------------------------------
 "  Backups
