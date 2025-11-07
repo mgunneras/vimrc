@@ -1,5 +1,5 @@
-[submodule "pack/plugins/start/fugitive"]
-	path = pack/plugins/start/fugitive
+[submodule "pack/plugins/opt/fugitive"]
+	path = pack/plugins/opt/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "pack/plugins/start/nerdcommenter"]
 	path = pack/plugins/start/nerdcommenter
@@ -7,14 +7,14 @@
 [submodule "pack/plugins/start/javascript"]
 	path = pack/plugins/start/javascript
 	url = https://github.com/pangloss/vim-javascript.git
-[submodule "pack/plugins/start/coffee"]
-	path = pack/plugins/start/coffee
+[submodule "pack/plugins/opt/coffee"]
+	path = pack/plugins/opt/coffee
 	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "pack/plugins/start/nerdtree"]
 	path = pack/plugins/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "pack/plugins/start/vim-ruby"]
-	path = pack/plugins/start/vim-ruby
+[submodule "pack/plugins/opt/vim-ruby"]
+	path = pack/plugins/opt/vim-ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
 [submodule "pack/plugins/start/repeat"]
 	path = pack/plugins/start/repeat
@@ -34,8 +34,8 @@
 [submodule "pack/plugins/start/syntastic"]
 	path = pack/plugins/start/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "pack/plugins/start/vim-peepopen"]
-	path = pack/plugins/start/vim-peepopen
+[submodule "pack/plugins/opt/vim-peepopen"]
+	path = pack/plugins/opt/vim-peepopen
 	url = https://github.com/topfunky/PeepOpen-EditorSupport.git
 [submodule "themes/plugins/start/base16-vim"]
 	path = themes/plugins/start/base16-vim

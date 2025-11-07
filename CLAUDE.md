@@ -60,9 +60,9 @@ curl https://raw.githubusercontent.com/mgunneras/vimrc/master/vimrc.lite > ~/.vi
 
 ## Plugins
 
-### Functional Plugins (pack/plugins/start/)
+### Auto-loaded Plugins (pack/plugins/start/)
 
-- **fugitive**: Git integration by tpope
+Essential plugins loaded automatically on startup:
 - **nerdtree**: File tree explorer (F2 to toggle)
 - **nerdcommenter**: Code commenting
 - **ctrlp**: Fuzzy file finder (Ctrl-P)
@@ -70,14 +70,16 @@ curl https://raw.githubusercontent.com/mgunneras/vimrc/master/vimrc.lite > ~/.vi
 - **vim-gitgutter**: Git diff in gutter
 - **syntastic**: Syntax checking
 - **vim-repeat**: Better repeat (.) command
-- **vim-ruby**: Ruby language support
 - **javascript**: JavaScript syntax
 - **vim-markdown**: Markdown support
-- **coffee**: CoffeeScript support
-- **vim-peepopen**: File navigation
 
 ### Optional Plugins (pack/plugins/opt/)
 
+Language-specific and specialty plugins loaded on demand with `:packadd`:
+- **fugitive**: Git integration by tpope (load with `:packadd fugitive`)
+- **vim-ruby**: Ruby language support (load with `:packadd vim-ruby`)
+- **coffee**: CoffeeScript support (load with `:packadd coffee`)
+- **vim-peepopen**: File navigation (load with `:packadd vim-peepopen`)
 - **vim-arduino**: Arduino development (load with `:packadd vim-arduino`)
 
 ### Theme Plugins (themes/plugins/start/)
