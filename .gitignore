@@ -1,3 +1,5 @@
 .netrwhist
 *.un~
 */doc/tags
+backup/
+swap/

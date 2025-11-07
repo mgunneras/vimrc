@@ -1,0 +1,79 @@
+" ===========================================================================
+"  Full Vim Configuration (macOS)
+"  Modern setup using Vim 8+ native package management
+"
+"  Installation:
+"    cd ~
+"    git clone git://github.com/mgunneras/vimrc.git .vim
+"    ln -s .vim/vimrc.full .vimrc
+"    cd .vim/
+"    git submodule update --init
+" ===========================================================================
+
+" ---------------------------------------------------------------------------
+"  Load Core Configuration Modules
+" ---------------------------------------------------------------------------
+
+source ~/.vim/core/settings.vim
+source ~/.vim/core/mappings.vim
+source ~/.vim/core/functions.vim
+source ~/.vim/core/ui.vim
+
+" ---------------------------------------------------------------------------
+"  Plugins
+" ---------------------------------------------------------------------------
+
+" Plugins are automatically loaded from:
+"   - pack/plugins/start/*    (auto-loaded)
+"   - themes/plugins/start/*  (auto-loaded)
+"   - pack/plugins/opt/*      (lazy-loaded with :packadd)
+
+" Load optional plugins on-demand
+" Example: To use Arduino plugin, run: :packadd vim-arduino
+
+" ---------------------------------------------------------------------------
+"  Visual Settings (Full Config)
+" ---------------------------------------------------------------------------
+
+" Color column at 80 characters
+set colorcolumn=80
+
+" Enable color scheme
+colorscheme toychest
+
+" Alternative color schemes (uncomment to use):
+" colorscheme jellybeans
+" colorscheme base16-default-dark
+" colorscheme base16-google-dark
+" colorscheme base16-twilight-dark
+" colorscheme molokai
+" colorscheme zenburn
+
+" ---------------------------------------------------------------------------
+"  Plugin-Specific Configuration
+" ---------------------------------------------------------------------------
+
+" Plugin configurations are automatically loaded from after/plugin/*.vim
+" This includes:
+"   - NERDTree settings (F2 to toggle)
+"   - CtrlP settings (Ctrl-P for fuzzy finder)
+"   - Airline status bar
+"   - GitGutter
+"   - Syntastic
+"   - And more...
+
+" ---------------------------------------------------------------------------
+"  Notes
+" ---------------------------------------------------------------------------
+
+" Key mappings:
+"   Leader key: ,
+"   <Leader>a  - Ack search
+"   <Leader>ss - Toggle spell checking
+"   <Leader>ks - Strip trailing whitespace
+"   <Leader>kt - Convert tabs to spaces
+"   <Leader>V/v - Paste from system clipboard
+"   <F2>       - Toggle NERDTree
+"   <C-p>      - CtrlP fuzzy finder
+"   <C-h/j/k/l> - Navigate splits
+"   <C-n/p>    - Navigate buffers

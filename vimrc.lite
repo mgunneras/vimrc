@@ -1,0 +1,121 @@
+" ===========================================================================
+"  Lite Vim Configuration (Remote Servers)
+"  Minimal setup without plugins for fast, lightweight operation
+"
+"  Installation (with core modules):
+"    cd ~
+"    git clone --depth 1 --no-recurse-submodules git://github.com/mgunneras/vimrc.git .vim
+"    ln -s .vim/vimrc.lite .vimrc
+"
+"  Installation (single file):
+"    curl https://raw.githubusercontent.com/mgunneras/vimrc/master/vimrc.lite > ~/.vimrc
+" ===========================================================================
+
+" ---------------------------------------------------------------------------
+"  Load Core Configuration Modules (if available)
+" ---------------------------------------------------------------------------
+
+" Try to load core modules if .vim directory exists
+if filereadable(expand("~/.vim/core/settings.vim"))
+  source ~/.vim/core/settings.vim
+  source ~/.vim/core/mappings.vim
+  source ~/.vim/core/functions.vim
+endif
+
+" ---------------------------------------------------------------------------
+"  Standalone Settings (fallback if core modules not available)
+" ---------------------------------------------------------------------------
+
+if !filereadable(expand("~/.vim/core/settings.vim"))
+  " Basic settings
+  set nocompatible
+  set encoding=utf-8
+  set history=1000
+  set nobackup
+  set nowritebackup
+  set noswapfile
+
+  " Search
+  set hlsearch
+  set incsearch
+  set ignorecase
+  set smartcase
+
+  " Text formatting
+  set wrap
+  set textwidth=79
+  set expandtab
+  set softtabstop=2
+  set shiftwidth=2
+  set ts=4
+  set autoindent
+
+  " UI
+  set ruler
+  set scrolloff=3
+  set wildmenu
+  set backspace=indent,eol,start
+  set laststatus=2
+  set visualbell
+  set showmode
+
+  " Enable filetype detection
+  filetype plugin indent on
+
+  " Mappings
+  let mapleader = ","
+  map Y y$
+  nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+  nnoremap j gj
+  nnoremap k gk
+  map <C-s> :w<CR>
+
+  " Split navigation
+  nmap <C-h> <C-w>h
+  nmap <C-j> <C-w>j
+  nmap <C-k> <C-w>k
+  nmap <C-l> <C-w>l
+
+  " Buffer navigation
+  nnoremap <C-n> :bnext<CR>
+  nnoremap <C-p> :bprevious<CR>
+
+  " Spell checking
+  map <Leader>ss :setlocal spell!<cr>
+
+  " Whitespace handling
+  map <Leader>ks :%s/\s\+$//g<CR>
+  map <Leader>kt :%s/\t/  /g<CR>
+
+  " Copy/paste
+  vmap <C-c> "+y
+  nmap <Leader>V "+gP
+  nmap <Leader>v "+gp
+endif
+
+" ---------------------------------------------------------------------------
+"  Minimal Visual Settings
+" ---------------------------------------------------------------------------
+
+syntax on
+set t_Co=256
+
+" Simple color scheme (works without plugins)
+" You can set a color scheme here if you have one in colors/
+" colorscheme default
+
+" ---------------------------------------------------------------------------
+"  Notes
+" ---------------------------------------------------------------------------
+
+" This is a lightweight configuration without plugins.
+" For full features, use vimrc.full on your local machine.
+"
+" Key mappings:
+"   Leader key: ,
+"   <Leader>ss - Toggle spell checking
+"   <Leader>ks - Strip trailing whitespace
+"   <Leader>kt - Convert tabs to spaces
+"   <C-h/j/k/l> - Navigate splits
+"   <C-n/p>    - Navigate buffers
+"   <Space>    - Clear search highlighting
